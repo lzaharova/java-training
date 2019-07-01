@@ -1,22 +1,24 @@
 package ru.stqa.pft.sandbox;
 
 public class Point {
-  public double x1;
-  public double x2;
-  public double y1;
-  public double y2;
-  public double d1;
-  public double d2;
+  public double x;
+  public double y;
+  public double dx;
+  public double dy;
 
-  public Point(double x1, double x2, double y1, double y2) {
-    this.x1 = x1;
-    this.x2 = x2;
-    this.y1 = y1;
-    this.y2 = y2;
+
+  public Point(double x, double y) {
+    this.x = x;
+    this.y = y;
   }
 
-  public double distance() {
-    return Math.sqrt(this.d1 * this.d1 + this.d2 * this.d2);
+  public double distance(double x, double y) {
+    dx = this.x - x;
+    dy = this.y - y;
+    return Math.sqrt(dx * dx + dy * dy);
   }
 
+  public double distance(Point p) {
+    return distance(p.x, p.y);
+  }
 }

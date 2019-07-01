@@ -1,13 +1,13 @@
 package ru.stqa.pft.sandbox;
 
+
 public class Distance {
   public static void main(String[] args) {
-    Point p = new Point(4, 8, 6, 9);
-    p.d1 = p.x2 - p.x1;
-    p.d2 = p.y2 - p.y1;
-    System.out.println("Расстояние между двумя точками c координатами" + " (" + p.x1 + ";" + p.y1 + ")" + " и " +
-            "(" + p.x2 + ";" + p.y2 + ")" + " равно " + p.distance());
+    Point p1 = new Point(4, 6);
+    Point p2 = new Point(8, 9);
+    System.out.println("p1 = " + p1.x + ", " + p1.y);
+    System.out.println("p2 = " + p2.x + ", " + p2.y);
+    System.out.println("Расстояние между двумя точками c координатами" + " (" + p1.x + ";" + p1.y + ")" + " и " +
+            "(" + p2.x + ";" + p2.y + ")" + " равно " + p1.distance(p2));
   }
 }
-
-
