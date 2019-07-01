@@ -1,6 +1,5 @@
 package ru.stqa.pft.sandbox;
 
-import java.awt.geom.Point2D;
 
 public class Distance {
     public static void main(String[] args) {
