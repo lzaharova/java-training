@@ -8,12 +8,13 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 import static org.testng.Assert.assertTrue;
 
-public class ContactHelper {
-  private ChromeDriver wd;
+public class ContactHelper extends HelperBase {
+
   public boolean acceptNextAlert = true;
 
   public ContactHelper(ChromeDriver wd) {
-    this.wd = wd;
+
+    super(wd);
   }
 
   public void returnToContactPage() {
@@ -25,24 +26,20 @@ public class ContactHelper {
   }
 
   public void fillContactForm(ContactData contactData) {
-    wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-    wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-    wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-    wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(contactData.getHome());
-    wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
-    wd.findElement(By.name("work")).clear();
-    wd.findElement(By.name("work")).sendKeys(contactData.getWork());
-    wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(contactData.getEmail1());
-    wd.findElement(By.name("email2")).clear();
-    wd.findElement(By.name("email2")).sendKeys(contactData.getEmail2());
-    wd.findElement(By.name("email3")).clear();
-    wd.findElement(By.name("email3")).sendKeys(contactData.getEmail3());
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("lastname"), contactData.getLastname());
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("home"), contactData.getHome());
+    type(By.name("mobile"), contactData.getMobile());
+    type(By.name("work"), contactData.getWork());
+    type(By.name("email"), contactData.getEmail1());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
+  }
+
+  public void type(By locator, String text) {
+    wd.findElement(locator).clear();
+    wd.findElement(locator).sendKeys(text);
   }
 
   public void initContactCreation() {
