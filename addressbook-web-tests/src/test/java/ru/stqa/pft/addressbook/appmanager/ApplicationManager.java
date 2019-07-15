@@ -41,5 +41,5 @@ public class ApplicationManager {
     return navigationHelper;
   }
 
-  
+
 }
