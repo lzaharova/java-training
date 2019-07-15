@@ -1,16 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import static org.testng.Assert.assertTrue;
-
 public class ContactHelper extends HelperBase {
-
-  public boolean acceptNextAlert = true;
 
   public ContactHelper(ChromeDriver wd) {
 
@@ -43,10 +38,12 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initContactCreation() {
+
     wd.findElement(By.linkText("add new")).click();
   }
 
   public void returnToHomePage() {
+
     wd.findElement(By.linkText("home")).click();
   }
 
@@ -59,21 +56,14 @@ public class ContactHelper extends HelperBase {
   }
 
   public void confirmDeletion() {
-    assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    wd.switchTo().alert().accept();
   }
 
-  public String closeAlertAndGetItsText() {
-    try {
-      Alert alert = wd.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
+  public void initContactModification() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.xpath("//input[@name='update']"));
   }
 }
