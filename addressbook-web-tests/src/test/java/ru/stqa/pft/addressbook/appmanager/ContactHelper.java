@@ -44,12 +44,7 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.linkText("add new")).click();
   }
 
-  public void returnToHomePage() {
-
-    wd.findElement(By.linkText("home")).click();
-  }
-
-  public void deleteSelectedContacts() {
+    public void deleteSelectedContacts() {
     wd.findElement(By.xpath("//input[@value='Delete']")).click();
   }
 
