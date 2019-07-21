@@ -32,11 +32,6 @@ public class ContactHelper extends HelperBase {
     type(By.name("email3"), contactData.getEmail3());
   }
 
-  public void type(By locator, String text) {
-    wd.findElement(locator).clear();
-    wd.findElement(locator).sendKeys(text);
-  }
-
   public void initContactCreation() {
 
     wd.findElement(By.linkText("add new")).click();
