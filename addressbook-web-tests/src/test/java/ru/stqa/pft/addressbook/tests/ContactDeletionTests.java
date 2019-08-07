@@ -11,7 +11,7 @@ public class ContactDeletionTests extends TestBase {
 
   @Test
   public void testContactDeletion() throws Exception {
-      if (!app.getContactHelper().isThereAContact()) {
+    if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData("Larisa", "Zakharova", "Saint-Petersburg",
               "111-11-00", "222-22-00", "333-33-00",
               null, null, null));
@@ -23,5 +23,9 @@ public class ContactDeletionTests extends TestBase {
     app.getNavigationHelper().returnToHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() - 1);
-  }
+
+    before.remove(before.size() - 1);
+    Assert.assertEquals(before, after);
+
+   }
 }
